@@ -1,0 +1,9 @@
+source .venv/bin/activate
+python create_agent.py
+
+tmux new -s fastapi
+
+# inside tmux:
+cd /home/ubuntu/fastapi-server
+source .venv/bin/activate
+uvicorn main:app --host 0.0.0.0 --port 8000
