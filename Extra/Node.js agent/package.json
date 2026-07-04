@@ -1,0 +1,21 @@
+{
+  "name": "retell-age-gate",
+  "version": "1.0.0",
+  "description": "Retell AI voice agent that screens callers by age (PASS if age > 18, else FAIL).",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "create-agent": "node src/createAgent.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "retell-sdk": "^4.0.0"
+  }
+}
