@@ -49,9 +49,7 @@ Data is extracted from the  args  object (or the body directly if "Payload: args
 
 # How the age is resolved
 
-All parsing lives in (age_gate.py) (a Python port of the Node
-../src/ageGate.js):
-
+All parsing lives in (age_gate.py):
 - Plain age vs. birth year an integer  ≥ 1000  is read as a birth year
   ( current_year − value ); anything smaller is the age directly.
 - Messy phrases with several numbers —  "I have 2 kids and my age is 28" 
@@ -95,6 +93,18 @@ Requires Python 3.9+.
 cd fastapi-server
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
+
+# Create the agent
+source .venv/bin/activate
+python create_agent.py
+
+# Run a Tmux Session
+tmux new -s fastapi
+
+# inside tmux:
+
+source .venv/bin/activate
+uvicorn main:app --host 0.0.0.0 --port 8000
    
 
 # Environment variables
